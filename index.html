@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    
+
+<script src="script.js"></script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quiz Interativo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .quiz-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .question {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .options label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    .options input {
+      margin-right: 5px;
+    }
+    #submit-btn {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    #result {
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <div class="question">1. Qual é a capital da França?</div>
+    <div class="options">
+      <label><input type="radio" name="q1" value="a">a) Londres</label>
+      <label><input type="radio" name="q1" value="b">b) Paris</label>
+      <label><input type="radio" name="q1" value="c">c) Berlim</label>
+    </div>
+
+    <div class="question">2. Quem pintou a Mona Lisa?</div>
+    <div class="options">
+      <label><input type="radio" name="q2" value="a">a) Leonardo da Vinci</label>
+      <label><input type="radio" name="q2" value="b">b) Pablo Picasso</label>
+      <label><input type="radio" name="q2" value="c">c) Vincent van Gogh</label>
+    </div>
+
+    <div class="question">3. Qual é o maior planeta do sistema solar?</div>
+    <div class="options">
+      <label><input type="radio" name="q3" value="a">a) Terra</label>
+      <label><input type="radio" name="q3" value="b">b) Júpiter</label>
+      <label><input type="radio" name="q3" value="c">c) Marte</label>
+    </div>
+
+    <div class="question">4. Qual é o rio mais longo do mundo?</div>
+    <div class="options">
+      <label><input type="radio" name="q4" value="a">a) Nilo</label>
+      <label><input type="radio" name="q4" value="b">b) Amazonas</label>
+      <label><input type="radio" name="q4" value="c">c) Yangtzé</label>
+    </div>
+
+    <div class="question">5. Em que país está localizada a Torre Eiffel?</div>
+    <div class="options">
+      <label><input type="radio" name="q5" value="a">a) Itália</label>
+      <label><input type="radio" name="q5" value="b">b) França</label>
+      <label><input type="radio" name="q5" value="c">c) Espanha</label>
+    </div>
+
+    <button id="submit-btn" onclick="checkAnswers()">Responder</button>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    const correctAnswers = ['b', 'a', 'b', 'a', 'b']; // Respostas corretas para cada pergunta
+    const questions = document.querySelectorAll('.question');
+    const options = document.querySelectorAll('.options');
+
+    function checkAnswers() {
+      let score = 0;
+
+      for (let i = 0; i < questions.length; i++) {
+        const selectedOption = options[i].querySelector('input:checked');
+
+        if (!selectedOption) {
+          alert('Por favor, responda todas as perguntas.');
+          return;
+        }
+
+        const userAnswer = selectedOption.value;
+
+        if (userAnswer === correctAnswers[i]) {
+          score++;
+        }
+      }
+
+      const resultDiv = document.getElementById('result');
+      resultDiv.innerText = `Você acertou ${score} de ${questions.length} perguntas.`;
+    }
+  </script>
+</body>
+</html>
