@@ -18,40 +18,6 @@
 <html>
 <head>
   <title>Quiz Interativo</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-    }
-    .quiz-container {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    .question {
-      font-size: 18px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-    .options label {
-      display: block;
-      margin-bottom: 5px;
-    }
-    .options input {
-      margin-right: 5px;
-    }
-    #submit-btn {
-      margin-top: 10px;
-      padding: 10px 20px;
-      background-color: #007bff;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-    }
-    #result {
-      font-size: 20px;
-      font-weight: bold;
-      margin-top: 20px;
-    }
-  </style>
 </head>
 <body>
   <div class="quiz-container">
@@ -95,32 +61,5 @@
     <div id="result"></div>
   </div>
 
-  <script>
-    const correctAnswers = ['b', 'a', 'b', 'a', 'b']; // Respostas corretas para cada pergunta
-    const questions = document.querySelectorAll('.question');
-    const options = document.querySelectorAll('.options');
-
-    function checkAnswers() {
-      let score = 0;
-
-      for (let i = 0; i < questions.length; i++) {
-        const selectedOption = options[i].querySelector('input:checked');
-
-        if (!selectedOption) {
-          alert('Por favor, responda todas as perguntas.');
-          return;
-        }
-
-        const userAnswer = selectedOption.value;
-
-        if (userAnswer === correctAnswers[i]) {
-          score++;
-        }
-      }
-
-      const resultDiv = document.getElementById('result');
-      resultDiv.innerText = `Você acertou ${score} de ${questions.length} perguntas.`;
-    }
-  </script>
 </body>
 </html>
